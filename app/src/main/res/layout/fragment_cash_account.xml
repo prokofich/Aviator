@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#242626"
+    tools:context=".view.fragments.CashAccountFragment">
+
+    <TextView
+        android:id="@+id/id_cash_account_tv_title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:text="The money account can be replenished daily"
+        android:background="@drawable/background_cs_game"
+        app:layout_constraintWidth_percent="0.95"
+        app:layout_constraintHeight_percent="0.13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/id_cash_account_cs_money"
+        android:background="@drawable/background_cs_game"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintWidth_percent="0.95"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/id_cash_account_tv_your_money"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:textStyle="bold|italic"
+            android:textColor="@color/white"
+            android:text="your money:0$"
+            android:textSize="35sp"
+            app:layout_constraintWidth_percent="0.8"
+            app:layout_constraintHeight_percent="0.4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/id_cash_account_button_add_money"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="+ add money"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="43sp"
+            android:id="@+id/id_cash_account_button_add_money"
+            android:background="@drawable/background_button2"
+            app:layout_constraintWidth_percent="0.85"
+            app:layout_constraintHeight_percent="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/id_cash_account_tv_your_money"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/id_cash_account_iv_air"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintWidth_percent="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id_cash_account_cs_money"
+        app:layout_constraintBottom_toTopOf="@id/id_cash_account_button_back"/>
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="10dp"
+        android:text="BACK"
+        android:id="@+id/id_cash_account_button_back"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:background="@drawable/background_button2"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

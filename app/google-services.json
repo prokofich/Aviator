@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "901970436759",
+    "project_id": "aviator-a4677",
+    "storage_bucket": "aviator-a4677.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:901970436759:android:122506cdd18975b468ffd2",
+        "android_client_info": {
+          "package_name": "com.example.aviator"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnX1ermBlggpUEbVYQcdR3-K9Spk_3hRU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
