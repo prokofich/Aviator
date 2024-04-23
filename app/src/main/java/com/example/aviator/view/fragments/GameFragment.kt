@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.addCallback
-import androidx.core.view.isVisible
 import com.example.aviator.R
 import com.example.aviator.constant.GAME
 import com.example.aviator.constant.listCoefficientStop
@@ -22,8 +21,8 @@ import java.util.Locale
 
 class GameFragment : Fragment() {
 
-    private var binding:FragmentGameBinding? = null
-    private var jobCoef:Job = Job()
+    private var binding : FragmentGameBinding? = null
+    private var jobCoef : Job = Job()
     private var yourCashForBet = 0
     private var coefficient = 1.0
     private var coefficientStop = 0.0
@@ -154,7 +153,7 @@ class GameFragment : Fragment() {
 
         //переход к пополнению счета
         binding!!.idGameButtonAddYourMoney.setOnClickListener {
-            GAME.navController.navigate(R.id.action_gameFragment_to_cashAccountFragment)
+            GAME.navController?.navigate(R.id.action_gameFragment_to_cashAccountFragment)
         }
 
         //выход из игры
@@ -169,9 +168,7 @@ class GameFragment : Fragment() {
         binding = null
     }
 
-    private fun showToast(message:String){
-        Toast.makeText(requireContext(),message,Toast.LENGTH_LONG).show()
-    }
+    private fun showToast(message:String) = Toast.makeText(requireContext(),message,Toast.LENGTH_LONG).show()
 
     @SuppressLint("SetTextI18n")
     private fun startAddCoefficientForBet(){
@@ -190,9 +187,8 @@ class GameFragment : Fragment() {
         }
     }
 
-    private fun checkCash(cash:Int): Boolean {
-        return GAME.getMyCash() >= cash
-    }
+    private fun checkCash(cash:Int): Boolean = GAME.getMyCash() >= cash
+
 
     //установка наибольшего значения коэффициента
     private fun setRandomCoefficientStop(){

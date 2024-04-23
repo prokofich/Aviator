@@ -15,38 +15,28 @@ import com.example.aviator.databinding.ActivityGameBinding
 
 class GameActivity : AppCompatActivity() {
 
-    private lateinit var binding:ActivityGameBinding
-    lateinit var navController: NavController
+    private var binding : ActivityGameBinding? = null
+    var navController : NavController? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGameBinding.inflate(layoutInflater)
-        val view = binding.root
+        val view = binding?.root
         setContentView(view)
 
         GAME = this
         navController = Navigation.findNavController(this,R.id.id_nav_host)
 
-        //установка полноэкранного режима
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
-
     }
 
     //функция получения последнего дня,когда был получен денежный приз
-    fun getLastDay():String{
-        val preferences = getSharedPreferences(APP_PREFERENCES,Context.MODE_PRIVATE).getString(LAST_DAY,"")
-        return preferences ?: ""
+    fun getLastDay() : String{
+        return getSharedPreferences(APP_PREFERENCES,Context.MODE_PRIVATE).getString(LAST_DAY,"").toString()
     }
 
     //функция обновления последнего дня
-    fun setLastDay(day:String){
-        val pref = getSharedPreferences(APP_PREFERENCES,Context.MODE_PRIVATE)
-        pref.edit()
-            .putString(LAST_DAY,day)
-            .apply()
+    fun setLastDay(day : String){
+        getSharedPreferences(APP_PREFERENCES,Context.MODE_PRIVATE).edit().putString(LAST_DAY,day).apply()
     }
 
     //функция получения своего счета
@@ -56,23 +46,12 @@ class GameActivity : AppCompatActivity() {
 
     //функция добавления денег к счету
     fun addMyCash(cash:Int){
-        val pref = getSharedPreferences(APP_PREFERENCES,Context.MODE_PRIVATE)
-        pref.edit()
-            .putInt(MY_CASH,getMyCash()+cash)
-            .apply()
+        getSharedPreferences(APP_PREFERENCES,Context.MODE_PRIVATE).edit().putInt(MY_CASH,getMyCash()+cash).apply()
     }
 
     //функция уменьшения счета за счет ставки
     fun minusMyCash(cash:Int){
-        val pref = getSharedPreferences(APP_PREFERENCES,Context.MODE_PRIVATE)
-        pref.edit()
-            .putInt(MY_CASH,getMyCash()-cash)
-            .apply()
+        getSharedPreferences(APP_PREFERENCES,Context.MODE_PRIVATE).edit().putInt(MY_CASH,getMyCash()-cash).apply()
     }
-
-
-
-
-
 
 }

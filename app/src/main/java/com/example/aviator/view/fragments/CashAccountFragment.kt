@@ -61,12 +61,12 @@ class CashAccountFragment : Fragment() {
 
         //переход от пополнения счета к игре
         binding!!.idCashAccountButtonBack.setOnClickListener {
-            GAME.navController.navigate(R.id.action_cashAccountFragment_to_gameFragment)
+            GAME.navController?.navigate(R.id.action_cashAccountFragment_to_gameFragment)
         }
 
         //переход от пополнения счета к игре
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner){
-            GAME.navController.navigate(R.id.action_cashAccountFragment_to_gameFragment)
+            GAME.navController?.navigate(R.id.action_cashAccountFragment_to_gameFragment)
         }
 
     }
@@ -90,9 +90,7 @@ class CashAccountFragment : Fragment() {
         }
     }
 
-    private fun checkLastDay(): Boolean {
-        return LocalDate.now().toString()!= GAME.getLastDay()
-    }
+    private fun checkLastDay() : Boolean  = LocalDate.now().toString()!= GAME.getLastDay()
 
 
 }

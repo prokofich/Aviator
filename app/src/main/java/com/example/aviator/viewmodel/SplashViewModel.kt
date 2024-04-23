@@ -10,14 +10,14 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.Response
 
-class SplashViewModel:ViewModel() {
+class SplashViewModel : ViewModel() {
 
-    val repo = Repository()
-    val webViewUrl: MutableLiveData<Response<ResponseWebView>> = MutableLiveData()
+    private val repository = Repository()
+    val webViewUrl: MutableLiveData <Response <ResponseWebView> > = MutableLiveData()
 
     fun setPostParametersPhone(phone_name:String,locale:String,unique:String){
         viewModelScope.launch(Dispatchers.IO) {
-            val responce = repo.setParametersPhone(phone_name, locale, unique)
+            val responce = repository.setParametersPhone(phone_name, locale, unique)
             withContext(Dispatchers.Main){
                 webViewUrl.value = responce
             }

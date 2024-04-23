@@ -5,8 +5,8 @@ import retrofit2.Response
 
 class Repository {
 
-    suspend fun setParametersPhone(phone_name:String,locale:String,unique:String): Response<ResponseWebView> {
-        return RetrofitInstance.api.setPostParametersPhone(phone_name, locale, unique)
+    suspend fun setParametersPhone(phone_name : String , locale : String , unique : String) : Response<ResponseWebView> {
+        return RetrofitInstance.api.setPostParametersPhone(phone_name , locale , unique)
     }
 
 }

@@ -28,30 +28,24 @@ import java.util.UUID
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
 
-    private lateinit var binding:ActivitySplashBinding
-    private var job:Job = Job()
-    private var job2:Job = Job()
+    private var binding : ActivitySplashBinding? = null
+    private var job : Job = Job()
+    private var job2 : Job = Job()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
-        val view = binding.root
+        val view = binding?.root
         setContentView(view)
 
         //загрузка фоновой картинки
-        loadBackgroundImage(image_url_splash,binding.idSplashImg)
+        loadBackgroundImage(image_url_splash,binding?.idSplashImg)
 
         //загрузка картинки эмблемы игры
-        loadImage(image_url_air,binding.idSplashIvAir)
+        loadImage(image_url_air,binding?.idSplashIvAir)
 
         //создание и старт анимации
         startAnimation()
-
-        //установка полноэкранного режима
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
 
         val splashViewModel = ViewModelProvider(this)[SplashViewModel::class.java]
         val namePhone = Build.MODEL.toString()
@@ -96,39 +90,39 @@ class SplashActivity : AppCompatActivity() {
     }
 
     //функция получения ID
-    private fun getMyId():String{
-        val preferences = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE).getString(ID,"")
-        return preferences ?: ""
+    private fun getMyId() : String{
+        return getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE).getString(ID,"").toString()
     }
 
     //функция установки ID
     private fun setMyId(id:String){
-        val preferences = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
-        preferences.edit()
-            .putString(ID,id)
-            .apply()
+        getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE).edit().putString(ID,id).apply()
     }
 
     //функция загрузки изображения с сервера
-    private fun loadBackgroundImage(url:String,id:ImageView){
-        Glide.with(this)
-            .load(url)
-            .centerCrop()
-            .into(id)
+    private fun loadBackgroundImage(url:String,id:ImageView?){
+        id?.let {
+            Glide.with(this)
+                .load(url)
+                .centerCrop()
+                .into(it)
+        }
     }
 
     //функция загрузки изображения с сервера
-    private fun loadImage(url:String,id:ImageView){
-        Glide.with(this)
-            .load(url)
-            .into(id)
+    private fun loadImage(url:String,id:ImageView?){
+        id?.let {
+            Glide.with(this)
+                .load(url)
+                .into(it)
+        }
     }
 
     //функция создания и старта анимации загрузки
     private fun startAnimation(){
-        binding.idSplashProgressBar.max = 2000
+        binding?.idSplashProgressBar?.max = 2000
         val finishProgress = 2000
-        ObjectAnimator.ofInt(binding.idSplashProgressBar,"progress",finishProgress)
+        ObjectAnimator.ofInt(binding?.idSplashProgressBar,"progress",finishProgress)
             .setDuration(4000)
             .start()
     }
